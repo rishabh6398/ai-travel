@@ -10,6 +10,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Index from "./pages/Index";
 import Flights from "./pages/Flights";
+import Trains from "./pages/Trains";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -44,10 +45,7 @@ const App = () => (
                 element={<PlaceholderPage title="How It Works" />}
               />
               <Route path="/flights" element={<Flights />} />
-              <Route
-                path="/trains"
-                element={<PlaceholderPage title="Book Train Tickets" />}
-              />
+              <Route path="/trains" element={<Trains />} />
               <Route
                 path="/hotels"
                 element={<PlaceholderPage title="Book Hotels" />}
