@@ -9,6 +9,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Index from "./pages/Index";
+import Flights from "./pages/Flights";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -42,10 +43,7 @@ const App = () => (
                 path="/how-it-works"
                 element={<PlaceholderPage title="How It Works" />}
               />
-              <Route
-                path="/flights"
-                element={<PlaceholderPage title="Book Flights" />}
-              />
+              <Route path="/flights" element={<Flights />} />
               <Route
                 path="/trains"
                 element={<PlaceholderPage title="Book Train Tickets" />}
