@@ -6,10 +6,26 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
+
+// Placeholder page component
+const PlaceholderPage = ({ title }: { title: string }) => (
+  <div className="min-h-screen bg-slate-50 pt-16">
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="text-center">
+        <h1 className="text-3xl font-bold text-slate-900 mb-4">{title}</h1>
+        <p className="text-lg text-slate-600">
+          This page is coming soon. Our AI travel assistant is working on it!
+        </p>
+      </div>
+    </div>
+  </div>
+);
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -17,11 +33,49 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <div className="min-h-screen flex flex-col">
+          <Header />
+          <main className="flex-1">
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route
+                path="/how-it-works"
+                element={<PlaceholderPage title="How It Works" />}
+              />
+              <Route
+                path="/flights"
+                element={<PlaceholderPage title="Book Flights" />}
+              />
+              <Route
+                path="/trains"
+                element={<PlaceholderPage title="Book Train Tickets" />}
+              />
+              <Route
+                path="/hotels"
+                element={<PlaceholderPage title="Book Hotels" />}
+              />
+              <Route
+                path="/cabs"
+                element={<PlaceholderPage title="Book Cabs" />}
+              />
+              <Route
+                path="/bookings"
+                element={<PlaceholderPage title="My Bookings" />}
+              />
+              <Route
+                path="/about"
+                element={<PlaceholderPage title="About Us" />}
+              />
+              <Route
+                path="/contact"
+                element={<PlaceholderPage title="Contact Us" />}
+              />
+              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
