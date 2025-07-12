@@ -47,16 +47,19 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        sidebar: {
-          DEFAULT: "hsl(var(--sidebar-background))",
-          foreground: "hsl(var(--sidebar-foreground))",
-          primary: "hsl(var(--sidebar-primary))",
-          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
-          accent: "hsl(var(--sidebar-accent))",
-          "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
-          border: "hsl(var(--sidebar-border))",
-          ring: "hsl(var(--sidebar-ring))",
-        },
+        // Travel app specific colors
+        "chat-bubble-ai": "#e5e7eb",
+        "chat-bubble-user": "#3b82f6",
+        "travel-primary": "#3b82f6",
+        "travel-primary-hover": "#2563eb",
+        "travel-success": "#22c55e",
+        "travel-success-bg": "#dcfce7",
+      },
+      fontFamily: {
+        sans: ["Inter", "system-ui", "sans-serif"],
+      },
+      backdropBlur: {
+        md: "12px",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -80,10 +83,19 @@ export default {
             height: "0",
           },
         },
+        typing: {
+          "0%, 60%, 100%": {
+            transform: "translateY(0)",
+          },
+          "30%": {
+            transform: "translateY(-10px)",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        typing: "typing 1.4s infinite ease-in-out",
       },
     },
   },
