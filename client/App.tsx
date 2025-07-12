@@ -77,12 +77,19 @@ const App = () => (
   </QueryClientProvider>
 );
 
-// Ensure root is only created once
+// Create root only once and handle hot module replacement
+let root: any;
 const rootElement = document.getElementById("root")!;
-if (!rootElement._reactRoot) {
-  const root = createRoot(rootElement);
-  (rootElement as any)._reactRoot = root;
-  root.render(<App />);
+
+if (import.meta.hot) {
+  // Development mode with HMR
+  if (!window.__reactRoot) {
+    window.__reactRoot = createRoot(rootElement);
+  }
+  root = window.__reactRoot;
 } else {
-  (rootElement as any)._reactRoot.render(<App />);
+  // Production mode
+  root = createRoot(rootElement);
 }
+
+root.render(<App />);
