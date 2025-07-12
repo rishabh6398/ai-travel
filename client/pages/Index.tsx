@@ -3,9 +3,9 @@ import HowItWorks from "../components/HowItWorks";
 
 export default function Index() {
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="bg-slate-50">
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center bg-white px-4 sm:px-6 lg:px-8">
+      <section className="min-h-screen flex items-center justify-center bg-white px-4 sm:px-6 lg:px-8 pt-16">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6">
             Your Dream Trip,{" "}
